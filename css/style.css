@@ -1,0 +1,259 @@
+/* === Reset and Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a202c;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+#hero h1 span {
+  color: #3b82f6;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Executive Features === */
+.executive-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.executive-card {
+  background: #2d3748;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+}
+
+.executive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(99, 179, 237, 0.5);
+}
+
+/* === Enhanced Skills Section === */
+.skills-section {
+  padding: 5rem 2rem;
+  background: #1a202c;
+}
+
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* === Unified Card Styles === */
+.category, 
+.project-card,
+.executive-card {
+  background: #2d3748;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.category:hover,
+.project-card:hover,
+.executive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(99, 179, 237, 0.5);
+}
+
+/* === Project Cards === */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.project-card img.project-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img.project-image {
+  transform: scale(1.03);
+}
+
+/* === Tech Stack Enhancements === */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-stack img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #4a5568;
+  padding: 0.25rem;
+  transition: all 0.3s ease;
+  filter: grayscale(30%);
+}
+
+.project-card:hover .tech-stack img {
+  filter: grayscale(0%);
+  transform: scale(1.15);
+}
+
+/* === Content Elements === */
+.project-card h3 {
+  color: #63b3ed;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: #4299e1;
+}
+
+.project-card p {
+  color: #a0aec0;
+  margin-bottom: 1rem;
+}
+
+/* === GitHub Link Styles (Force Override) === */
+.projects-container .project-card .github-link {
+  /* Reset all inherited styles */
+  all: initial;
+  
+  /* Layout */
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  /* Visual Styling */
+  color: #63b3ed !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 100px !important;
+  font: 500 1rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  text-decoration: none !important;
+  
+  /* Background & Border */
+  background: linear-gradient(
+    to right,
+    rgba(26, 32, 44, 0.9),
+    rgba(26, 32, 44, 0.7)
+  ) !important;
+  border: 2px solid rgba(99, 179, 237, 0.3) !important;
+  
+  /* Effects */
+  box-shadow: 
+    inset 0 0 8px rgba(99, 179, 237, 0.2),
+    0 2px 4px rgba(0,0,0,0.1) !important;
+  
+  /* Animation */
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+}
+
+/* Hover State */
+.projects-container .project-card .github-link:hover {
+  color: white !important;
+  border-color: #63b3ed !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 0 12px rgba(99, 179, 237, 0.3),
+    0 4px 12px rgba(66, 153, 225, 0.2) !important;
+}
+
+/* Arrow Animation */
+.projects-container .project-card .github-link::after {
+  content: '→' !important;
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.projects-container .project-card .github-link:hover::after {
+  transform: translateX(3px);
+}
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .executive-features,
+  .skills-categories,
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .category,
+  .project-card,
+  .executive-card {
+    padding: 1.25rem;
+  }
+}
+
+/* === Animation Classes === */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

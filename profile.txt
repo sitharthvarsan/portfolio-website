@@ -1,0 +1,140 @@
+## Personal Summary
+Sitharth Varsan is a B.Tech student in Artificial Intelligence and Data Science at Shiv Nadar University (2022–2026). He is skilled in Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, and cybersecurity. He actively builds real-world AI systems and ranked among the top 10 finalists in IISc Bangalore’s national hackathon OpenHack 2024.
+
+---
+
+## Schooling
+Sitharth completed his Higher Secondary Education at Green Park International Sr. Sec. School (2021–2022), with a strong focus on mathematics and science.
+
+---
+
+## College Education
+Currently pursuing a B.Tech in AI & Data Science at Shiv Nadar University (2022–2026).
+Core courses include:
+- Machine Learning
+- Deep Learning
+- Artificial Intelligence
+- Data Science
+- Data Structures
+- Algorithm Design and Analysis
+
+---
+
+## Technical Skills
+Languages: Python, JavaScript, C, HTML, CSS  
+Libraries & Frameworks: TensorFlow, Keras, PyTorch, OpenCV, NumPy, Pandas, scikit-learn  
+Tools: Tableau, VS Code, Git  
+AI Concepts: Transformers, CNN, RNN, GANs, NLP, YOLOv8, Encoder-Decoder  
+AI Agents: Reflex, Goal-based, Model-based, Learning Agents  
+ML Algorithms: SVM, Random Forest, Logistic Regression, Decision Tree, K-Means, XGBoost
+
+---
+
+## Certifications
+- Deep Learning for Developers
+- Generative Models for Developers
+- Introduction to OpenAI GPT Models
+- Introduction to NLP
+- High Impact Presentations
+- Data Science Fundamentals
+
+---
+
+## Projects
+
+### 1. Harmful Brain Activity Classification
+Built a system to detect abnormal EEG brainwave patterns using CNN and KerasCV.
+Tools: Python, TensorFlow, KerasCV, Transfer Learning  
+Repo: https://github.com/sitharthvarsan/Harmful-Brain-Activity-Classification-with-KerasCV-and-Keras
+
+### 2. Disaster Tweets Classification
+Built an NLP-based tweet classification tool to filter disaster-related tweets.
+Used Word2Vec, TF-IDF, and SBERT for embeddings.
+Repo: https://github.com/sitharthvarsan/Disaster-Tweets-Classification-using-NLP
+
+### 3. Heart Disease Prediction
+Used patient data with XGBoost, Random Forest, and Neural Networks to predict heart disease risk.
+Repo: https://github.com/sitharthvarsan/Heart-Disease-Prediction
+
+### 4. DDoS Attack Detection
+Real-time DDoS attack detection system using Random Forest and Deep Learning.
+Repo: https://github.com/sitharthvarsan/DDOS-Detection-using-Machine-Learning
+
+### 5. License Plate Recognition
+Compared three OCR models (PaddleOCR, EasyOCR) for real-time LPR system using image processing.
+Repo: https://github.com/sitharthvarsan/LICENCE-PLATE-RECOGNITION-USING-IVP
+
+---
+
+## AI & ML Knowledge
+
+### Supervised Learning Algorithms:
+- Linear Regression
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- SVM (Support Vector Machine)
+- XGBoost
+
+### Unsupervised Learning:
+- K-Means Clustering
+- PCA
+
+### Deep Learning:
+- CNN (Convolutional Neural Networks)
+- RNN (Recurrent Neural Networks)
+- Transformers
+- Encoder-Decoder Architectures
+- GANs (Generative Adversarial Networks)
+
+### Computer Vision:
+- Object Detection (YOLOv8)
+- Image Preprocessing: Gaussian Blur, Canny, Morphological Filters
+- OCR: EasyOCR, PaddleOCR
+
+### NLP:
+- TF-IDF
+- Word2Vec
+- Sentence-BERT
+- Text Classification
+
+---
+
+ Achievements
+- Finalist, OpenHack 2024 (Top 10 out of 1300 teams, IISc Bangalore)
+- SNU Independence Cup – First Place in Basketball
+- Guru Fest 2024 – Third Place (Basketball & Volleyball)
+- Deloitte Australia Data Analytics Virtual Internship using Tableau & Excel
+
+
+
+Q: What projects have you built in Deep Learning?
+A: I've worked on EEG brainwave classification, heart disease prediction, and license plate recognition using CNNs and transfer learning.
+
+Q: Can you list some tools you’re comfortable with?
+A: Yes, I’m experienced with Python, TensorFlow, PyTorch, OpenCV, Pandas, Tableau, and LLMs like LLaMA.
+
+Q: Do you know Tableau?
+A: Yes, I completed a Deloitte job simulation using Tableau to build dashboards and data visualizations.
+
+Q: What is your most advanced Computer Vision project?
+A: A real-time License Plate Recognition system comparing PaddleOCR and EasyOCR pipelines.
+
+Q: What algorithms have you used in ML?
+A: I’ve implemented SVM, Random Forest, Logistic Regression, XGBoost, and K-Means for classification and clustering.
+
+Q: What programming languages do you use?
+A: Mainly Python and JavaScript. I also work with HTML and CSS for frontend development.
+
+Q: Have you worked with YOLO models?
+A: Yes, I’ve used YOLOv8 for real-time object detection tasks in Computer Vision projects.
+
+Q: What is your college and course?
+A: I’m pursuing B.Tech in Artificial Intelligence and Data Science at Shiv Nadar University.
+
+
+contact section
+sitharth Varsan's mail sitharthvarsan@gmail.com or sitharthvarsan22110053@snuchennai.edu.in
+contact number of sitharth varsan is 9600835644
+github link for sitharthvarsan is https://github.com/sitharthvarsan
+linkedin profile link is https://www.linkedin.com/in/sitharth-varsan-s-934764354/
