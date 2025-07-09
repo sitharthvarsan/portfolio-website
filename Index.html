@@ -253,29 +253,20 @@
       </button>
     </div>
   </section>
-  <!-- Add this inside your portfolio HTML (e.g., index.html) -->
-<section id="chat" class="py-16 px-4">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="text-2xl font-bold text-blue-400 mb-4">Ask Me Anything!</h2>
-    <input id="chatInput" class="w-full p-3 rounded text-black" placeholder="Ask about Sitharth's projects, skills..." />
-    <button onclick="askSitharth()" class="mt-4 bg-green-500 px-4 py-2 rounded text-white">Ask</button>
-    <p id="chatResponse" class="mt-4 text-gray-200"></p>
-  </div>
-</section>
+ <input id="chatInput" placeholder="Ask about Sitharth..." />
+<button onclick="askSitharth()">Ask</button>
+<p id="chatResponse"></p>
 
 <script>
 async function askSitharth() {
-  const question = document.getElementById('chatInput').value;
-  const res = await fetch("http://127.0.0.1:8000/ask", {
+  const question = document.getElementById("chatInput").value;
+  const res = await fetch("https://sitharth-ai-assistant.onrender.com/ask", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question })
   });
-
   const data = await res.json();
-  document.getElementById('chatResponse').textContent = data.answer;
+  document.getElementById("chatResponse").textContent = data.answer;
 }
 </script>
 
