@@ -1,0 +1,75 @@
+Name: Sitharth Varsan S
+Role: AI/ML Engineer & Data Scientist
+Contact:
+- Email: sitharthvarsan@gmail.com
+- LinkedIn: linkedin.com/in/sitharth-varsan-s-934764354
+- GitHub: github.com/sitharthvarsan
+- Phone: +91-96008 35644
+
+Education:
+- B.Tech in Artificial Intelligence and Data Science, Shiv Nadar University (2022–2026)
+  - Coursework: Machine Learning, Deep Learning, AI, Data Science, Data Structures, Algorithms
+- Higher Secondary Education, Green Park International School (2021–2022)
+
+Technical Skills:
+- Languages: Python, JavaScript, C, HTML, CSS
+- AI/ML: Supervised/Unsupervised Learning, Classification, Regression, CNN, RNN, GANs, Transformers, Agentic AI, CrewAI
+- Frameworks: TensorFlow, PyTorch, Keras, scikit-learn, Pandas, NumPy, OpenCV
+- Tools: Tableau, Excel
+- Computer Vision: PaddleOCR, Yolov8 ,SAM ,
+
+Certifications:
+1. Deep Learning for Developers
+2. Generative Models for Developers
+3. Introduction to OpenAI GPT Models
+4. OpenAI GPT-3 for Developers
+5. Introduction to Data Science
+6. Introduction to NLP
+7. High Impact Presentations
+
+Projects:
+1. Harmful Brain Activity Classification (KerasCV, TensorFlow, Deep Learning, LSTM, Bi-LSTM)
+   - Real-time EEG signal analysis using CNNs and transfer learning.
+   
+2. Disaster Tweets Classification (NLP)
+   - Used TF-IDF, Word2Vec, SBERT for tweet embeddings; Logistic Regression for classification.
+
+3. Coronary Heart Disease Prediction (XGBoost, Neural Networks)
+   - Analyzed patient data for disease risk assessment.
+
+4. DDoS Detection System (K-Means Clustering, Machine Learning)
+   - Real-time network traffic analysis to mitigate attacks.
+
+5. License Plate Recognition (PaddleOCR)
+   - Comparative analysis of OCR pipelines (83% accuracy).
+
+Achievements:
+- Finalist, OpenHack 2024 (IISc Bangalore): Top 10 among 1300 teams (Gen AI, NLP, Data Visualization).
+- Deloitte Australia Data Analytics Job Simulation: Built Tableau dashboards and forensic analysis.
+- Basketball/Volleyball: 1st Place (SNU Independence Cup), 3rd Place (Guru Fest Inter-Collegiate).
+
+Career Objective:
+Seek a dynamic role to leverage AI/ML expertise for innovative solutions, teamwork, and business growth.
+
+--- Q&A EXAMPLES FOR THE AI ---
+
+Q: What are Sitharth's main skills?
+A: Sitharth's main technical skills include Python and JavaScript for programming; frameworks like TensorFlow, PyTorch, and Keras for AI/ML; and tools like Tableau and various OCR libraries for data analysis and computer vision.
+
+Q: Tell me more about his brain activity project.
+A: The Harmful Brain Activity Classification project involved real-time analysis of EEG signals to detect abnormal brain patterns. He used KerasCV, CNNs, and transfer learning for the classification task. You can find the code on his GitHub.
+
+Q: What is he studying?
+A: He is pursuing a B.Tech in Artificial Intelligence and Data Science at Shiv Nadar University and is expected to graduate in 2026. His coursework focuses on Machine Learning, Deep Learning, and core computer science principles.
+
+Q: What kind of job is he looking for?
+A: He is seeking a dynamic role as an AI/ML Engineer or Data Scientist where he can use his expertise to build innovative solutions and contribute to a forward-thinking organization.
+
+Q: What was his biggest achievement?
+A: A major achievement was being a finalist in the OpenHack 2024 competition at IISc Bangalore, where his team placed in the top 10 out of 1300 teams. He also has significant achievements in a data analytics simulation with Deloitte Australia and in collegiate sports.
+
+Q: How can I contact him?
+A: You can contact Sitharth via email at sitharthvarsan@gmail.com, connect with him on LinkedIn, or find his work on GitHub.
+
+Q. What is he passionate about?
+A. He is passionate about solving real-world problems and building intelligent systems using modern AI technologies, with a strong focus on machine learning, deep learning, and computer vision.

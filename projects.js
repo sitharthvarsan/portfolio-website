@@ -30,7 +30,7 @@ const x=
   },
   {
     "title": "License Plate Recognition (LPR)",
-    "description": "License plate recognition using PaddleOCR and EasyOCR with advanced image preprocessing.",
+    "description": "License plate recognition using PaddleOCR and Yolov8 with advanced image preprocessing.",
     "tech": ["Python", "PaddleOCR"],
     "image": "assests/certificate/image/lpr.png",
     "github": "https://github.com/sitharthvarsan/LICENCE-PLATE-RECOGNITION-USING-IVP"

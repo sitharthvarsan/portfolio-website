@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #1a202c;
-  color: #e2e8f0;
+  background: transparent;
+  color: transparent;
   line-height: 1.6;
 }
 
@@ -151,7 +151,7 @@ footer a:hover {
 
 /* === Content Elements === */
 .project-card h3 {
-  color: #63b3ed;
+  color: #6daedc;
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
   transition: color 0.3s ease;
@@ -257,3 +257,563 @@ footer a:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Typing Indicator Styles */
+.typing-indicator {
+    display: none; /* Hidden by default */
+    height: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Show when active (controlled by JS) */
+.typing-indicator.active {
+    display: block;
+}
+
+/* Animation dots */
+.typing-indicator span {
+    display: inline-block;
+    animation: bounce 1.5s infinite ease-in-out;
+    opacity: 0.6;
+    margin: 0 2px;
+    font-size: 18px;
+}
+
+/* Animation delays */
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Mini Chat Container */
+/* Base style for the EXPANDED chat window */
+.ai-chat-mini {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  max-height: 400px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  z-index: 1000;
+}
+
+/* Style for the COLLAPSED state */
+.ai-chat-mini.collapsed {
+  max-height: 50px; /* Height of the header */
+  width: 150px;     /* Width of the collapsed widget */
+}
+
+/* CRITICAL FIX: Hide the chat body when collapsed */
+.ai-chat-mini.collapsed .ai-body {
+  display: none;
+}
+
+/* Header styling */
+.ai-header {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Ensure the body is visible when not collapsed */
+.ai-body {
+  /* This flex setup helps structure the content inside */
+  display: flex;
+  flex-direction: column;
+  height: calc(400px - 50px); /* Full height minus header */
+}
+.ai-status {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4ade80;
+}
+
+/* Message Area */
+.ai-messages {
+  height: 250px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* WebKit scrollbar style */
+.ai-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.ai-messages::-webkit-scrollbar-thumb {
+  background-color: #4f46e5;
+  border-radius: 10px;
+}
+.ai-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Message Bubbles */
+.ai-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 18px;
+  font-size: 13px;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
+.bot-message {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-bottom-left-radius: 5px;
+}
+
+.user-message {
+  background: #4f46e5;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+/* Input Area */
+.ai-input-container {
+  display: flex;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.ai-input-container input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+}
+
+.ai-input-container input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ai-send-btn {
+  background: #4f46e5;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-send-btn:hover {
+  background: #6366f1;
+  transform: scale(1.05);
+}
+
+.ai-send-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+}
+
+/* Typing Indicator */
+.ai-typing-indicator {
+  display: none;
+  padding: 0 15px 10px;
+  text-align: left;
+}
+
+.ai-typing-indicator span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  margin-right: 4px;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Add these styles without modifying existing ones */
+.ai-contact-links {
+  padding: 12px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 8px;
+  margin: 8px 0;
+}
+
+.ai-contact-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.ai-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #4285f4;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.ai-contact-link:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.ai-contact-link svg {
+  width: 16px;
+  height: 16px;
+  fill: #4285f4;
+}
+
+
+
+
+/* --- Certificate Section Style --- */
+#certificates {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #020217; /* A light grey background for this section */
+}
+
+#certificates h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #7d99a0; /* A dark, professional blue for the heading */
+}
+
+.certificate-grid {
+    /* Creates a responsive grid that adjusts columns based on screen width */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid */
+}
+
+.certificate-item {
+    background: #ffffff;
+    padding: 40px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    position: relative; /* Essential for the blob effect */
+    overflow: hidden;   /* Hides the blob when it's outside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.certificate-item h3, .certificate-item p {
+    margin: 0;
+    position: relative;
+    z-index: 2; /* Ensures text stays on top of the blob */
+    transition: color 0.4s ease; /* Smooth color change for text */
+}
+
+.certificate-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #869f73;
+}
+
+.certificate-item p {
+    color: #6c757d; /* Softer color for the certificate issuer */
+    font-size: 1rem;
+}
+
+/* --- Blob Hover Effect --- */
+.certificate-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    /* Uses the gradient from your hero section for a cohesive design */
+    background: linear-gradient(45deg, #263383, #52298C);
+    border-radius: 45% 55% 70% 30% / 30% 60% 40% 70%; /* Organic blob shape */
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease, border-radius 0.3s ease;
+    z-index: -1; /* Places blob behind the text */
+}
+
+.certificate-item:hover {
+    transform: translateY(-8px); /* Lifts the card up on hover */
+    box-shadow: 0 10px 25px rgba(45, 55, 131, 0.2);
+    color: #ffffff; /* Changes text color to white on hover */
+}
+
+.certificate-item:hover p {
+    color: #e0e0e0; /* A lighter shade for the issuer text on hover */
+}
+
+.certificate-item:hover::before {
+    transform: translate(-50%, -50%) scale(3.5);
+    border-radius: 50%; /* Becomes a circle as it expands */
+}
+
+
+
+
+/* style.css */
+
+/* --- Resume & Experience Section Style --- */
+#resume-experience {
+    background: #04053b8f; /* Matches your other sections */
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates the two-column layout */
+    gap: 30px;
+}
+
+.action-item {
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(45, 55, 131, 0.15);
+    border-color: #52298C; /* Matches your hero color */
+}
+
+.action-item h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.action-item p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+
+/* --- Experience Modal Specific Styles --- */
+#experience-modal h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+#experience-modal p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.experience-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.experience-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #263383, #52298C);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.experience-link:hover {
+    transform: scale(1.05);
+}
+
+/* We need a separate rule for the experience close button if its class name is different */
+.close-experience-button {
+    color: #aaaaaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.close-experience-button:hover,
+.close-experience-button:focus {
+    color: black;
+}
+
+
+
+
+/* ============================================= */
+/* MODAL STYLES (IMPORTANT)             */
+/* ============================================= */
+
+/* --- Modal Base (for PDF and Experience) --- */
+.modal {
+  display: none; /* Hides the modal by default */
+  position: fixed; /* Stays in place, covering the page */
+  z-index: 1000;   /* Sits on top of all other content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allows scrolling if content is long */
+  background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent background */
+  animation: fadeIn 0.3s ease; /* Fade-in animation */
+}
+
+/* --- Content Box Inside the Modal --- */
+.modal-content {
+  position: relative;
+  background-color: #1a202c; /* Matches your site's dark background */
+  color: #e2e8f0;
+  margin: 2.5% auto;     /* Reduced margin to allow for more size */
+  padding: 20px;         /* Adjusted padding */
+  border: 1px solid #4a5568;
+  border-radius: 15px;
+  width: 90%;            /* Set width to 90% of the screen */
+  height: 90vh;          /* Set height to 90% of the viewport height */
+  max-width: 1400px;     /* Increased max-width for large desktops */
+  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  display: flex;         /* Use flexbox for easy alignment */
+  flex-direction: column;
+}
+
+#pdf-viewer {
+  flex-grow: 1; /* Allows the iframe to expand and fill the available space */
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0 0 10px 10px; /* Optional: rounds bottom corners */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Styles for Experience Modal Content --- */
+#experience-modal h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #63b3ed; /* Matches your theme's blue */
+  margin-bottom: 1rem;
+}
+
+#experience-modal p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #a0aec0;
+}
+
+.experience-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.experience-link {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #263383, #52298C);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(99, 179, 237, 0.2);
+}
+
+/* --- Styles for Modal Close Buttons --- */
+.close-button, .close-experience-button {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-experience-button:hover {
+  color: #ffffff;
+}
+
+
+
