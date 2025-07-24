@@ -12,7 +12,7 @@ load_dotenv(env_path)
 
 app = Flask(__name__)
 # Change this line in app.py
-CORS(app, resources={r"/ask": {"origins": ["https://portfolio-frontend.onrender.com"]}})
+CORS(app, resources={r"/ask": {"origins": ["https://portfolio-frontend-xq12.onrender.com"]}})
 # Configure Gemini
 API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
