@@ -1,9 +1,7 @@
 import data from './projects.js';
 
 // Initialize EmailJS with your credentials
-emailjs.init("boDeA7WwxN0UIT9eo"); // Your User ID
-const ADMIN_EMAIL = "sitharthvarsan@gmail.com"; // Your admin email
-let generatedOTP = "";
+emailjs.init("boDeA7WwxN0UIT9eo");
 
 // ==========================================================
 // MAIN INITIALIZATION - Runs when the page is fully loaded
@@ -11,14 +9,13 @@ let generatedOTP = "";
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. ELEMENT SELECTION ---
-  // Select all necessary elements from the page at once.
   const elements = {
     // Contact Form
     emailInput: document.getElementById("emailInput"),
-    sendOtpBtn: document.getElementById("sendOtpBtn"),
+    sendOtpBtn: document.querySelector('#contact button'), // Targets the first button in the contact section
     otpSection: document.getElementById("otpSection"),
     otpInput: document.getElementById("otpInput"),
-    verifyOtpBtn: document.getElementById("verifyOtpBtn"),
+    verifyOtpBtn: document.querySelector('#otpSection button'),
     otpMessage: document.getElementById("otpMessage"),
     messageBox: document.getElementById("messageBox"),
     submitBtn: document.getElementById("submitBtn"),
@@ -46,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // --- 2. FUNCTIONS ---
-  // All functions that control the page's interactivity.
+  let generatedOTP = "";
 
   // Contact Form & OTP
   function sendOTP() {
@@ -138,7 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elements.chatTypingIndicator) elements.chatTypingIndicator.style.display = 'block';
 
     try {
-      const response = await fetch("https://portfolio-backend.onrender.com/ask", {
+      // =========================================================================
+      // IMPORTANT FIX: Use your live Render backend URL here
+      // =========================================================================
+      const backendUrl = "https://sv-portfolio-77uo.onrender.com";
+      
+      const response = await fetch(backendUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question })
@@ -172,21 +174,18 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.projectsContainer.innerHTML = ''; 
     data.forEach(project => {
       const projectCard = document.createElement('div');
-      projectCard.className = "bg-white text-black p-4 rounded-lg shadow-md flex flex-col justify-between w-full sm:w-[300px] h-[360px]";
+      projectCard.className = `p-4 rounded-lg shadow-md flex flex-col justify-between w-full sm:w-[300px] h-[360px] ${project.themeClass}`;
       projectCard.innerHTML = `
         <div>
           <img src="${project.image}" alt="${project.title}" class="w-full max-h-48 object-contain rounded mb-2">
           <h3 class="text-lg font-semibold">${project.title}</h3>
           <p class="text-sm mb-2">${project.description}</p>
-          <a href="${project.github}" target="_blank" class="text-dark-green-600 text-sm hover:underline">GitHub →</a>
+          <a href="${project.github}" target="_blank" class="text-blue-600 text-sm hover:underline">GitHub →</a>
         </div>
         <div class="flex-grow"></div>
         <div class="flex flex-wrap gap-2 items-center mt-2">
           ${project.tech.map(tech => {
             const formattedTech = tech.charAt(0).toUpperCase() + tech.slice(1).toLowerCase();
-            // =========================================================================
-            // CORRECTED: Using the original file path that worked for you
-            // =========================================================================
             return `<img src="assests/certificate/image/logo/${formattedTech}.png" alt="${tech}" title="${tech}" class="h-6 transition-transform duration-300 hover:scale-110">`;
           }).join('')}
         </div>
@@ -200,19 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const header = category.querySelector('.category-header');
       if (header) {
         header.addEventListener('click', () => category.classList.toggle('active'));
-        header.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            category.classList.toggle('active');
-          }
-        });
       }
     });
   }
 
   // --- 3. EVENT LISTENERS & INITIALIZATION ---
   
-  // Initial calls
   renderProjects();
   initSkillsSection();
 
@@ -239,16 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter') sendMiniAIMessage();
   });
 
-  // Global events for closing modals
+  // Global events
   window.addEventListener('click', (event) => {
       if (event.target === elements.pdfModal) closePdfModal();
       if (event.target === elements.experienceModal) closeExperienceModal();
   });
   window.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
-          if (elements.pdfModal && elements.pdfModal.style.display === 'block') closePdfModal();
-          if (elements.experienceModal && elements.experienceModal.style.display === 'block') closeExperienceModal();
+          if (elements.pdfModal?.style.display === 'block') closePdfModal();
+          if (elements.experienceModal?.style.display === 'block') closeExperienceModal();
       }
   });
-
 });
