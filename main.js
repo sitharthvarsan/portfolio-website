@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // =========================================================================
       // IMPORTANT FIX: Use your live Render backend URL here
       // =========================================================================
-      const backendUrl = "https://sv-portfolio-77uo.onrender.com";
+      const backendUrl = "https://sv-portfolio-77uo.onrender.com/ask";
       
       const response = await fetch(backendUrl, {
         method: "POST",
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.projectsContainer.innerHTML = ''; 
     data.forEach(project => {
       const projectCard = document.createElement('div');
-      projectCard.className = `p-4 rounded-lg shadow-md flex flex-col justify-between w-full sm:w-[300px] h-[360px] ${project.themeClass}`;
+      projectCard.className = `bg-white text-black p-4 rounded-lg shadow-md flex flex-col justify-between w-full sm:w-[300px] h-[360px] ${project.themeClass}`;
       projectCard.innerHTML = `
         <div>
           <img src="${project.image}" alt="${project.title}" class="w-full max-h-48 object-contain rounded mb-2">
